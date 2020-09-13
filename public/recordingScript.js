@@ -17,6 +17,8 @@ navigator.mediaDevices.getUserMedia({
     audio: true
 }).then(stream => {
     myAudioStream = stream;
+    // default mode is mute
+    muteUnmute();
     socket.on('add-call', (userId) => {
         // console.log('got new user');
         // console.log('sending call');
@@ -40,7 +42,7 @@ const muteUnmute = () => {
 const setMuteButton = () => {
     const html = `
         <i class="fas fa-microphone fa-10x microphone-icon"></i>
-        <span>Mute</span>    
+        <p>Mute</p>    
     `;
     document.querySelector('.record').innerHTML = html;
 }
@@ -48,7 +50,7 @@ const setMuteButton = () => {
 const setUnmuteButton = () => {
     const html = `
         <i class="fas fa-microphone-slash fa-10x microphone-icon"></i>
-        <span>Start Live Feed</span>    
+        <p>Start Live Feed</p>    
     `;
     document.querySelector('.record').innerHTML = html;
 }
