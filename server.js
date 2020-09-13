@@ -24,7 +24,6 @@ app.get('/recording', (req,res)=>{
 });
 
 io.on('connection', (socket)=>{
-    console.log('connected');
     socket.on('user-connected', (id)=>{
         console.log(`peer id is ${id}`);
         io.emit('add-call', id);

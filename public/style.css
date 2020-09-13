@@ -46,8 +46,9 @@ a{
     margin: 100px
 }
 
-.fa-microphone{
+.record{
     color: brown;
+    cursor: pointer;
 }
 
 .record{
@@ -55,8 +56,4 @@ a{
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-}
-
-p{
-   color: brown;
 }

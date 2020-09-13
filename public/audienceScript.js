@@ -1,7 +1,7 @@
 const peer = new Peer(null, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '443'                    // make it 443 for heroku
 });
 const socket = io('/');
 
@@ -14,10 +14,8 @@ const audioPlayer = document.getElementById('audio-player-ipl');
 const getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 peer.on('call', (call) => {
-    console.log('got call');
     call.answer();
     call.on('stream', (remoteStream)=>{
-        console.log('adding source');
         audioPlayer.srcObject = remoteStream;
         audioPlayer.addEventListener('loadedmetadata', () => {
             audioPlayer.play();

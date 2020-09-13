@@ -2,7 +2,7 @@
 const peer = new Peer('record', {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '443'          // 443 for heroku
 });
 const socket = io('/');
 
@@ -11,14 +11,44 @@ peer.on('open', (id) => {
 
 });
 
+let myAudioStream;
 navigator.mediaDevices.getUserMedia({
     video: false,
     audio: true
 }).then(stream => {
+    myAudioStream = stream;
     socket.on('add-call', (userId) => {
-        console.log('got new user');
-        console.log('sending call');
+        // console.log('got new user');
+        // console.log('sending call');
         // callNewUser(userId);
         peer.call(userId, stream);
     });
 });
+
+
+const muteUnmute = () => {
+    const enabled = myAudioStream.getAudioTracks()[0].enabled;
+    if (enabled) {
+        myAudioStream.getAudioTracks()[0].enabled = false;
+        setUnmuteButton();
+    } else {
+        setMuteButton();
+        myAudioStream.getAudioTracks()[0].enabled = true;
+    }
+}
+
+const setMuteButton = () => {
+    const html = `
+        <i class="fas fa-microphone fa-10x microphone-icon"></i>
+        <span>Mute</span>    
+    `;
+    document.querySelector('.record').innerHTML = html;
+}
+
+const setUnmuteButton = () => {
+    const html = `
+        <i class="fas fa-microphone-slash fa-10x microphone-icon"></i>
+        <span>Start Live Feed</span>    
+    `;
+    document.querySelector('.record').innerHTML = html;
+}
