@@ -9,25 +9,60 @@
 </head>
 <body>
     <h1>Some title i will add later</h1>
-    <div class="game cricket">
-        <div class="match-summary">
-            Live Commentary of IPL match between CSK & MI
+    <h2>Live content</h2>
+    <div class="live-content">
+        <div class="game cricket">
+            <div class="match-summary">
+                CSK Vs MI Live
+            </div>
+            <div class="audio-player">
+                <audio controls id="audio-player-ipl"></audio>
+            </div>
         </div>
-        <div class="audio-player">
-            <audio controls id="audio-player-ipl">
-    
-            </audio>
+        <div class="game football">
+            <div class="match-summary">
+               Liverpool Vs Arsenal Live
+            </div>
+            <div class="audio-player">
+                <audio controls></audio>
+            </div>
+        </div>
+        <div class="game f1">
+            <div class="match-summary">
+               Sochi Grand Prix 2020 Live
+            </div>
+            <div class="audio-player">
+                <audio controls></audio>
+            </div>
         </div>
     </div>
-    <div class="game football">
-        <div class="match-summary">
-            Live Commentary of EPL match between Liverpool and Arsenal
+    <h2>Podcasts</h2>
+    <div class="podcast">
+        <div class="football-podcast">
+            <div class="match-summary">
+                Arsenal Podcast
+            </div>
+            <div class="audio-player">
+                <iframe src="https://open.spotify.com/embed-podcast/show/1SVMx3YGLpZZByyRli8IgY" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
         </div>
-        <div class="audio-player">
-            <audio controls>
-    
-            </audio>
+        <div class="f1-podcast">
+            <div class="match-summary">
+                F1 Podcast
+            </div>
+            <div class="audio-player">
+                <iframe src="https://open.spotify.com/embed-podcast/show/3P2RsaP89xP1xvG7twj8pd" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
         </div>
+        <div class="cricket-podcast">
+            <div class="match-summary">
+                Cricket Podcast
+            </div>
+            <div class="audio-player">
+                <iframe src="https://open.spotify.com/embed-podcast/show/43mTFxSHXF7Xtvjx4TF0Dc" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+         
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="audienceScript.js"></script>
